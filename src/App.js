@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { initIndexPageTriggered } from "./actions/initIndexPage";
 import { initShopPageTriggered } from "./actions/initShopPage";
 import { initRegPageTriggered } from "./actions/initRegPage";
+import { headerTriggered } from "./actions/header";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -14,10 +15,12 @@ class App extends Component {
     this.props.initIndexPageTriggered();
     this.props.initRegPageTriggered();
     this.props.initShopPageTriggered();
+    this.props.headerTriggered();
   }
   render() {
     let loading = this.props.state.indexData.loading;
-    let preloader = "https://www.safia-fitness.ru/img/waiting.gif";
+    let preloader =
+      "https://i.pinimg.com/originals/76/77/ed/7677edd5a44b10130b8824ca020ba60b.gif";
     if (loading) {
       return (
         <div
@@ -55,6 +58,9 @@ const mapDispatchToProps = dispatch => ({
   },
   initRegPageTriggered() {
     dispatch(initRegPageTriggered());
+  },
+  headerTriggered() {
+    dispatch(headerTriggered());
   }
 });
 

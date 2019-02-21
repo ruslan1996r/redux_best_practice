@@ -11,7 +11,7 @@ import {
 function* indexPage(action) {
   yield put(request());
   console.log("req");
-  // yield delay(1000000);
+  yield delay(3000);
   try {
     let response = yield call(
       [axios, axios.get],

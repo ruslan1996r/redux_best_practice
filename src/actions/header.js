@@ -6,7 +6,7 @@ import {
 } from "../types";
 
 export const headerTriggered = () => ({
-  type: HEADER_TRIGERRED
+  type: HEADER_TRIGGERED
 });
 
 export const headerRequest = () => ({

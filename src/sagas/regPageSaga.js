@@ -16,10 +16,11 @@ function* regPage(action) {
     let { response, timeout } = yield race({
       response: call(
         [axios, axios.get],
-        "https://floating-dawn-26890.herokuapp.com/enrollment/add"
+        "https://floating-dawn-26890.herokuapp.com/enrollment/get"
       ),
       timeout: delay(7000)
     });
+
     if (response) {
       console.log("success");
       yield put(success(response.data));
