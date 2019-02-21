@@ -1,12 +1,13 @@
 import {
-  ENROLLMENT_TRIGGERED,
+  ENROLLMENT_SUBMITTED,
   ENROLLMENT_REQUEST,
   ENROLLMENT_SUCCESS,
-  ENROLLMENT_FAILURE
+  ENROLLMENT_FAILURE,
 } from "../types";
 
-export const enrollmentTriggered = () => ({
-  type: ENROLLMENT_TRIGERRED
+export const enrollmentSubmitted= (name, phone, email, categories, subcategories, pictures) => ({
+  type: ENROLLMENT_SUBMITTED,
+  payload: {name, phone, email, categories, subcategories, pictures}
 });
 
 export const enrollmentRequest = () => ({

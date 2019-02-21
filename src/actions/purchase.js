@@ -1,12 +1,13 @@
 import {
-  PURCHASE_TRIGGERED,
+  PURCHASE_SUBMITTED,
   PURCHASE_REQUEST,
   PURCHASE_SUCCESS,
   PURCHASE_FAILURE
 } from "../types";
 
-export const purchaseTriggered = () => ({
-  type: PURCHASE_TRIGERRED
+export const purchaseSubmitted = (name, email, phone, address) => ({
+  type: PURCHASE_SUBMITTED,
+  payload: {name, email, phone, address}
 });
 
 export const purchaseRequest = () => ({
