@@ -1,12 +1,13 @@
 import {
-  REVIEW_TRIGGERED,
   REVIEW_REQUEST,
   REVIEW_SUCCESS,
-  REVIEW_FAILURE
+  REVIEW_FAILURE,
+  REVIEW_SUBMITTED
 } from "../types";
 
-export const reviewTriggered = () => ({
-  type: REVIEW_TRIGERRED
+export const reviewSubmitted = (name, email, text) => ({
+  type: REVIEW_SUBMITTED,
+  payload: {name, email, text}
 });
 
 export const reviewRequest = () => ({
