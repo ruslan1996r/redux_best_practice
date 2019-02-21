@@ -1,28 +1,64 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { initIndexPageTriggered } from "./actions/initIndexPage";
+import { initShopPageTriggered } from "./actions/initShopPage";
+import { initRegPageTriggered } from "./actions/initRegPage";
+
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.props.initIndexPageTriggered();
+    this.props.initRegPageTriggered();
+    this.props.initShopPageTriggered();
+  }
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    let loading = this.props.state.indexData.loading;
+    let preloader = "https://www.safia-fitness.ru/img/waiting.gif";
+    if (loading) {
+      return (
+        <div
+          className="preloader"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+        >
+          <img
+            src={preloader}
+            style={{ height: "100vh" }}
+            className="App-preloader"
+            alt="preloader"
+          />
+        </div>
+      );
+    }
+
+    return <div className="">{JSON.stringify(this.props.state)}</div>;
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  state: state
+});
+
+const mapDispatchToProps = dispatch => ({
+  initIndexPageTriggered() {
+    dispatch(initIndexPageTriggered());
+  },
+  initShopPageTriggered() {
+    dispatch(initShopPageTriggered());
+  },
+  initRegPageTriggered() {
+    dispatch(initRegPageTriggered());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

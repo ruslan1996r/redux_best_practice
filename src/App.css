@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+
+/* gay stuff */
+
+.App-preloader {
+  animation: App-preloader-spin infinite 2s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* @keyframes App-preloader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
